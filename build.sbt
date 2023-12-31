@@ -1,4 +1,4 @@
-name := """ScalaToDoList"""
+name := """ScalaGamesRanking"""
 organization := "com.bevilacqua1996"
 
 version := "1.0-SNAPSHOT"
