@@ -15,7 +15,7 @@ class GamesRankingController @Inject()(val controllerComponents: ControllerCompo
   gamesRanking += Game(2, "Sea Of Stars", 8.0f)
 
   implicit val gameRankingJson: OFormat[Game] = Json.format[Game]
-  implicit val newGame = Json.format[GameDTO]
+  implicit val newGame: OFormat[GameDTO] = Json.format[GameDTO]
 
   def ranking: Action[AnyContent] = Action {
     if(gamesRanking.isEmpty) NoContent
@@ -50,7 +50,7 @@ class GamesRankingController @Inject()(val controllerComponents: ControllerCompo
     Ok(Json.toJson(gamesRanking))
   }
 
-  def addNewGame() = Action { implicit request =>
+  def addNewGame(): Action[AnyContent] = Action { implicit request =>
     val content = request.body
     val jsonObject = content.asJson
     val newGameItem: Option[GameDTO] =
