@@ -11,8 +11,9 @@ import scala.collection.mutable
 class GamesRankingController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
 
   private val gamesRanking = new mutable.ListBuffer[Game]()
-  gamesRanking += Game(1, "Lies of P", 8.0f)
-  gamesRanking += Game(2, "Sea Of Stars", 8.0f)
+  gamesRanking += Game(1, "Sea Of Stars", 9.0f)
+  gamesRanking += Game(2, "Lies of P", 8.0f)
+  gamesRanking += Game(3, "Sea Of Stars", 8.0f)
 
   implicit val gameRankingJson: OFormat[Game] = Json.format[Game]
   implicit val newGame: OFormat[GameDTO] = Json.format[GameDTO]
